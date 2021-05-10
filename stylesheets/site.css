@@ -374,12 +374,14 @@ textarea {
   /* IE9 Compat Modes */
   src: url("../fonts/SangBleuEmpire-Bold-WebM.eot?#iefix") format("embedded-opentype"), url("../fonts/SangBleuEmpire-Bold-WebM.woff2") format("woff2"), url("../fonts/SangBleuEmpire-Bold-WebM.woff") format("woff"), url("../fonts/SangBleuEmpire-Bold-WebM.ttf") format("truetype"), url("../fonts/SangBleuEmpire-Bold-WebM.svg#svgFontName") format("svg");
   /* Legacy iOS */ }
+
 @font-face {
   font-family: 'SangBleuKingdom';
   src: url("../fonts/SangBleuKingdom-RegularItalic-WebM.eot");
   /* IE9 Compat Modes */
   src: url("../fonts/SangBleuKingdom-RegularItalic-WebM.eot?#iefix") format("embedded-opentype"), url("../fonts/SangBleuKingdom-RegularItalic-WebM.woff2") format("woff2"), url("../fonts/SangBleuKingdom-RegularItalic-WebM.woff") format("woff"), url("../fonts/SangBleuKingdom-RegularItalic-WebM.ttf") format("truetype"), url("../fonts/SangBleuKingdom-RegularItalic-WebM.svg#svgFontName") format("svg");
   /* Legacy iOS */ }
+
 * {
   margin: 0;
   padding: 0;
@@ -420,7 +422,7 @@ ul {
     height: 12em; }
     .project:first-child .list-inner-text {
       padding-top: 8em; }
-    .project:first-child.active {
+    .project.active:first-child {
       height: calc(100vw*600/2880 + 12.5em); }
     .project:first-child .project-details:not(.hide) {
       top: 10em; }
@@ -470,14 +472,9 @@ ul {
   .project .presentation {
     width: 100%;
     text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+    flex-wrap: wrap;
+    justify-content: space-between; }
   .project .presentation-tab {
     display: inline-block;
     text-align: left;
@@ -509,45 +506,45 @@ ul {
   #hornbach .media {
     background-image: url("/images/hornbach.jpg"); }
 
-#mercedes-y {
+#netflix {
   z-index: 997; }
+  #netflix .media {
+    background-image: url("/images/netflix.jpg"); }
+
+#mercedes-y {
+  z-index: 996; }
   #mercedes-y .media {
     background-image: url("/images/mercedes-y.jpg"); }
 
-#google {
-  z-index: 996; }
-  #google .media {
-    background-image: url("/images/google.jpg"); }
+#google-stadia {
+  z-index: 995; }
+  #google-stadia .media {
+    background-image: url("/images/google-stadia.jpg"); }
+
+#google-escape {
+  z-index: 994; }
+  #google-escape .media {
+    background-image: url("/images/google-escape.jpg"); }
 
 #nike {
-  z-index: 995; }
+  z-index: 993; }
   #nike .media {
     background-image: url("/images/nike.jpg"); }
 
-#att {
-  z-index: 994; }
-  #att .media {
-    background-image: url("/images/att.jpg"); }
-
 #fanta {
-  z-index: 993; }
+  z-index: 992; }
   #fanta .media {
     background-image: url("/images/fanta.jpg"); }
-
-#adidas {
-  z-index: 992; }
-  #adidas .media {
-    background-image: url("/images/adidas.jpg"); }
 
 #cnn {
   z-index: 991; }
   #cnn .media {
     background-image: url("/images/cnn.jpg"); }
 
-#frf {
+#stefanini {
   z-index: 990; }
-  #frf .media {
-    background-image: url("/images/frf.jpg"); }
+  #stefanini .media {
+    background-image: url("/images/stefanini.jpg"); }
 
 #havas {
   z-index: 989; }
@@ -557,21 +554,23 @@ ul {
 @media screen and (max-width: 1150px) {
   .project .presentation-tab {
     font-size: .6em; } }
+
 @media screen and (max-width: 870px) {
   .project .presentation-tab {
     font-size: .5em; } }
+
 @media screen and (max-width: 740px) {
   .project .presentation-tab {
     font-size: .4em; } }
+
 @media screen and (max-width: 590px) {
   .project .presentation-tab {
     font-size: .3em; }
-
   .project .list-inner-text {
     font-size: .9em; }
-
   .project .project-details .description {
     font-size: .6em; } }
+
 @media screen and (max-width: 440px) {
   .project .presentation-tab {
     font-size: .2em; } }

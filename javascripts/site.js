@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   for (var i = 0; i < projects.length; i++) {
     projects[i].addEventListener('click', function(event) {
-      hideAllImages(projects)
+      hideAllImages(projects);
+      stopAllVideos(projects);
       event.currentTarget.parentElement.classList.add('active');
       event.currentTarget.parentElement.querySelectorAll('.project-details')[0].classList.remove('hide');
     });
@@ -17,6 +18,17 @@ function hideAllImages(projects) {
     if (projects) {
       projects[i].parentElement.classList.remove('active');
       projects[i].parentElement.querySelectorAll('.project-details')[0].classList.add('hide');
+    }
+  }
+}
+
+function stopAllVideos(projects) {
+  for (var i = 0; i < projects.length; i++) {
+    if (projects) {
+      var frame = projects[i].parentElement.querySelectorAll('.media iframe')[0];
+      if (frame) {
+        frame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      }
     }
   }
 }
@@ -51,10 +63,11 @@ r(function(){
     videos[i].onclick = function() {
       // Create an iFrame with autoplay set to true
       var iframe = document.createElement("iframe");
-      var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1";
+      var iframe_url = "https://www.youtube.com/embed/" + this.id + "?autoplay=1&autohide=1&enablejsapi=1";
       if (this.getAttribute("data-params")) iframe_url+='&'+this.getAttribute("data-params");
       iframe.setAttribute("src",iframe_url);
       iframe.setAttribute("frameborder",'0');
+      iframe.setAttribute("allow",'autoplay');
 
       // Replace the YouTube thumbnail with YouTube Player
       this.parentNode.replaceChild(iframe, this);
